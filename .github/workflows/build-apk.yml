@@ -5,7 +5,6 @@ on:
   push:
     branches:
       - main
-      - principal
 
 permissions:
   contents: read
@@ -30,10 +29,10 @@ jobs:
       - name: Compilar APK
         run: |
           chmod +x gradlew
-          ./gradlew :aplicativo:assembleDebug
+          ./gradlew :app:assembleDebug
 
       - name: Salvar APK
         uses: actions/upload-artifact@v4
         with:
           name: Garra-Android-APK
-          path: aplicativo/build/outputs/apk/debug/*.apk
+          path: app/build/outputs/apk/debug/*.apk
